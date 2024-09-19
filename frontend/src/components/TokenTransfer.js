@@ -1,42 +1,42 @@
 import React, { useState } from 'react';
+import './TokenTransfer.css';
 
 const TokenTransfer = () => {
   const [recipient, setRecipient] = useState('');
   const [amount, setAmount] = useState('');
 
   const handleTransfer = () => {
-    // Implement token transfer logic here
-    console.log(`Transferring ${amount} tokens to ${recipient}`);
-    // Make API call to backend to perform the transfer
+    if (recipient && amount) {
+      alert(`Transferring ${amount} tokens to ${recipient}`);
+    } else {
+      alert('Please enter both recipient address and amount.');
+    }
   };
 
   return (
-    <div>
+    <div className="token-transfer-form">
       <h2>Transfer Tokens</h2>
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        handleTransfer();
-      }}>
-        <div>
-          <label>Recipient Address:</label>
-          <input
-            type="text"
-            value={recipient}
-            onChange={(e) => setRecipient(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Amount:</label>
-          <input
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Transfer</button>
-      </form>
+      <label htmlFor="recipient">Recipient Address</label>
+      <input 
+        type="text" 
+        id="recipient" 
+        placeholder="Enter recipient address" 
+        value={recipient}
+        onChange={(e) => setRecipient(e.target.value)}
+      />
+      
+      <label htmlFor="amount">Amount</label>
+      <input 
+        type="number" 
+        id="amount" 
+        placeholder="Enter amount to transfer" 
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+      />
+      
+      <button className="token-transfer-button" onClick={handleTransfer}>
+        Transfer
+      </button>
     </div>
   );
 };
