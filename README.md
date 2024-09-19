@@ -86,3 +86,8 @@ This will open the application in your default web browser.
 **Check Allowances**: Enter a contract address to check token allowances.
 
 **Transfer Tokens**: Input recipient address and amount to transfer token
+
+## Notes
+- Node.js: Ensure Node.js is installed.
+- Python Version: Ensure you are using Python 3.x for the backend.
+- If you're using environment variables (for API keys, etc.), configure them appropriately in both frontend and backend.
