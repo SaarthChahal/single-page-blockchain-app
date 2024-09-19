@@ -1,25 +1,20 @@
-import React, { useState } from 'react';
-import { getAllowance } from '../api';
+import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const Allowance = () => {
-  const [address, setAddress] = useState('');
-  const [allowance, setAllowance] = useState('');
-
-  const checkAllowance = () => {
-    getAllowance(address).then(data => setAllowance(data.allowance));
-  };
-
+const Allowance = ({ allowances }) => {
   return (
-    <div>
-      <h2>Token Allowance</h2>
-      <input
-        type="text"
-        placeholder="Enter address"
-        value={address}
-        onChange={e => setAddress(e.target.value)}
-      />
-      <button onClick={checkAllowance}>Check Allowance</button>
-      {allowance && <p>Allowance: {allowance}</p>}
+    <div className="allowance-bar-chart">
+      <h2>Token Allowances</h2>
+      <ResponsiveContainer width="100%" height={400}>
+        <BarChart data={allowances}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="contract" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="amount" fill="#82ca9d" />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 };
