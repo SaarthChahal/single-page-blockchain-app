@@ -91,3 +91,10 @@ This will open the application in your default web browser.
 - Node.js: Ensure Node.js is installed.
 - Python Version: Ensure you are using Python 3.x for the backend.
 - If you're using environment variables (for API keys, etc.), configure them appropriately in both frontend and backend.
+
+
+ABI and Contract Address:
+
+Ensure that you replace the placeholder TOKEN_CONTRACT_ADDRESS and TOKEN_ABI with the actual contract address and ABI for your token.
+
+The INFURA_URL should be set properly in your environment. For development, you can use a .env file with python-dotenv to manage this securely.
